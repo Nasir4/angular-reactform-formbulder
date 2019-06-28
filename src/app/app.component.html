@@ -1,0 +1,22 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+<form [formGroup]="uForm" (ngSubmit)="fsubmit()">
+   <mat-form-field class="example-full-width">
+    <input matInput placeholder="User Name" formControlName="name">
+    <mat-error *ngIf="uForm.hasError">
+  {{uFormError()}}
+    </mat-error>
+  </mat-form-field>
+  <br>
+     <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email">
+    <mat-error *ngIf="uForm.hasError">
+  {{uFormEmail()}}
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <button type="submit" [disabled]="uForm.invalid" mat-raised-button color="primary" >Submit</button>
+</form>
